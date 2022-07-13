@@ -1,0 +1,8 @@
+rootProject.name = 'simple-app'
+include 'service'
+include 'data'
+include 'api'
+include 'jwt'
+include 'business'
+include 'transaction'
+
