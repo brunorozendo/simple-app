@@ -11,10 +11,10 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class FiltersReportResponse {
+public class ReportResponse {
 
     private String status;
-    private List<Report> reports;
+    private List<Report> response;
 
     @Getter
     @Setter

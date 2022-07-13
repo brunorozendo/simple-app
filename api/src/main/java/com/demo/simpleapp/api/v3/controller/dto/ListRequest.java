@@ -1,6 +1,9 @@
 package com.demo.simpleapp.api.v3.controller.dto;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
@@ -9,7 +12,7 @@ import java.time.LocalDate;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class FiltersReportRequest {
+public class ListRequest {
 
     @NotNull
     private LocalDate fromDate;
@@ -19,6 +22,5 @@ public class FiltersReportRequest {
     private String merchant;
     @NotNull
     private String acquirer;
-
 
 }

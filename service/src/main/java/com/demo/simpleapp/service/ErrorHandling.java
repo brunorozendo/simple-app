@@ -11,7 +11,8 @@ public class ErrorHandling {
 
     @ExceptionHandler(value = Throwable.class)
     @ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR)
+
     public String resourceNotFoundException(Throwable ex, WebRequest request) {
-        return ex.getMessage();
+        return "{ \"status\": \""+ex.getMessage()+"\"}";
     }
 }
