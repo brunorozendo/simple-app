@@ -23,7 +23,7 @@ public class TokenManager implements Serializable {
 
     private final String JWT_SECRET = "MIIDXTCCAkUCFHQtDzLHmWe0okVInFmjcyFSWjMPMA0GCSqGSIb3DQEBCwUAMH8x";
 
-    public String generateJwtToken(UserDetails userDetails) {
+    public String generateJwtToken(String username) {
         LocalDateTime currentTime = LocalDateTime.now();
         Date now = Date.from(currentTime.atZone(ZoneId.systemDefault()).toInstant());
         Date future = Date.from(currentTime.plusMinutes(TIME_TO_EXPIRE_IN_MINUTES).atZone(ZoneId.systemDefault()).toInstant());
@@ -34,21 +34,21 @@ public class TokenManager implements Serializable {
         byte[] apiKeySecretBytes = Base64.getEncoder().encode(JWT_SECRET.getBytes());
         Key signingKey = new SecretKeySpec(apiKeySecretBytes, SignatureAlgorithm.HS256.getJcaName());
 
-        return Jwts.builder().setClaims(claims).setSubject(userDetails.getUsername())
+        return Jwts.builder().setClaims(claims).setSubject(username)
                 .setIssuedAt(now)
                 .setExpiration(future)
                 .signWith(signingKey, SignatureAlgorithm.HS256).compact();
     }
 
-    public Boolean validateJwtToken(String token, UserDetails userDetails) {
-        String username = getUsernameFromToken(token);
+    public Boolean validateJwtToken(String token, String username) {
+        String usernameFromToken = getUsernameFromToken(token);
         byte[] apiKeySecretBytes = Base64.getEncoder().encode(JWT_SECRET.getBytes());
         Claims claims = Jwts.parserBuilder()
                 .setSigningKey(apiKeySecretBytes)
                 .build()
                 .parseClaimsJws(token).getBody();
         boolean isTokenExpired = claims.getExpiration().before(new Date());
-        return (username.equals(userDetails.getUsername()) && !isTokenExpired);
+        return (usernameFromToken.equals(username) && !isTokenExpired);
     }
 
     public String getUsernameFromToken(String token) {

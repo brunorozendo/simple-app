@@ -23,6 +23,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final JwtFilter filter;
 
+
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
@@ -42,8 +43,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
-                .authorizeRequests().antMatchers("/api/v3/merchant/user/login").permitAll()
-                .anyRequest().authenticated()
+                .authorizeRequests()
+                    .antMatchers("/api/v3/merchant/user/login")
+                    .permitAll()
+                    .and()
+                .authorizeRequests()
+                    .antMatchers("/h2-console")
+                    .permitAll()
+                .anyRequest()
+                    .authenticated()
                 .and()
                 .exceptionHandling().authenticationEntryPoint(authenticationEntryPoint)
                 .and()

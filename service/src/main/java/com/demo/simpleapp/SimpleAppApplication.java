@@ -9,7 +9,8 @@ import org.springframework.boot.autoconfigure.security.servlet.UserDetailsServic
         scanBasePackages = {
                 "com.demo.simpleapp.api",
                 "com.demo.simpleapp.jwt",
-                "com.demo.simpleapp.transaction",
+                "com.demo.simpleapp.client",
+                "com.demo.simpleapp.data",
                 "com.demo.simpleapp.service"
         }
 )
