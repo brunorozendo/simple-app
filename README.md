@@ -37,7 +37,7 @@ This demo has implemented
     "transactionId": "1-1444392550-1"
     }
     ```
-    For the `client` endpoint there are data on the database;
+    For the `client` endpoint there are NO DATA on the database;
 
 # Structure of the project
 
