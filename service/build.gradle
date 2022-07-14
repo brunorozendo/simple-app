@@ -16,7 +16,7 @@ dependencies {
 	implementation project(":api")
 	implementation project(":business")
 	implementation project(":client")
-	//implementation project(":jwt")
+	implementation project(":jwt")
 	implementation project(":data")
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
