@@ -20,6 +20,6 @@ public class ClientBO {
         // clientRequest.getTransactionId()
         Client client = service.findById(1L);
 
-        return mapper.sourceToTarget(client);
+        return mapper.convert(client);
     }
 }

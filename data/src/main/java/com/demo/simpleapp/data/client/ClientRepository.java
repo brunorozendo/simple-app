@@ -1,6 +1,5 @@
-package com.demo.simpleapp.data;
+package com.demo.simpleapp.data.client;
 
-import com.demo.simpleapp.data.entities.ClientEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

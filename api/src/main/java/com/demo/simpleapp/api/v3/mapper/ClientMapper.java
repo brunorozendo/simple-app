@@ -8,7 +8,7 @@ import org.mapstruct.Mapper;
 @Mapper(componentModel = "spring")
 public interface ClientMapper {
 
-    ClientResponse sourceToTarget(Client source);
+    ClientResponse convert(Client source);
 
 
 }

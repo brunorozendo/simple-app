@@ -1,4 +1,4 @@
-package com.demo.simpleapp.data.entities;
+package com.demo.simpleapp.data.client;
 
 
 import lombok.AllArgsConstructor;
@@ -11,7 +11,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "client")
+@Table(name = "tb_client")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter

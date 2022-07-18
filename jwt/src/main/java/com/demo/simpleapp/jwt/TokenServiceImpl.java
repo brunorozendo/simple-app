@@ -1,7 +1,8 @@
 package com.demo.simpleapp.jwt;
 
 import com.demo.simpleapp.api.v3.controller.dto.LoginRequest;
-import com.demo.simpleapp.api.v3.business.TokenService;
+import com.demo.simpleapp.api.v3.services.AuthenticationStatus;
+import com.demo.simpleapp.api.v3.services.TokenService;
 import lombok.AllArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -31,7 +32,7 @@ public class TokenServiceImpl implements TokenService {
         return userDetails.getUsername();
     }
 
-    public void authenticate(LoginRequest credentials) {
+    public AuthenticationStatus authenticate(LoginRequest credentials) {
         try {
             authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(
@@ -39,10 +40,11 @@ public class TokenServiceImpl implements TokenService {
                             credentials.getPassword()
                     )
             );
+            return  AuthenticationStatus.VALID;
         } catch (DisabledException e) {
-            throw new RuntimeException("USER_DISABLED", e);
+            return  AuthenticationStatus.USER_DISABLED;
         } catch (BadCredentialsException e) {
-            throw new RuntimeException("INVALID_CREDENTIALS", e);
+            return AuthenticationStatus.INVALID_CREDENTIALS;
         }
     }
 

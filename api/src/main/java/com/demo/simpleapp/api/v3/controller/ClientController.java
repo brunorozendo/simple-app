@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 
 @RequestMapping(path = "/api/v3")
-public interface Client {
+public interface ClientController {
     @PostMapping(value = "/client", produces = "application/json", consumes = "application/json")
     ClientResponse getClient(@Valid @RequestBody ClientRequest clientRequest);
 

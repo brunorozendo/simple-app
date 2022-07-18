@@ -1,4 +1,4 @@
-package com.demo.simpleapp.api.v3.business;
+package com.demo.simpleapp.api.v3.services;
 
 import com.demo.simpleapp.api.v3.controller.dto.LoginRequest;
 
@@ -7,6 +7,6 @@ public interface TokenService {
 
     String getUsername(LoginRequest credentials);
 
-    void authenticate(LoginRequest credentials) ;
+    AuthenticationStatus authenticate(LoginRequest credentials) ;
 
 }

@@ -1,6 +1,6 @@
 package com.demo.simpleapp.client;
 
-import com.demo.simpleapp.api.v3.controller.Client;
+import com.demo.simpleapp.api.v3.controller.ClientController;
 import com.demo.simpleapp.api.v3.controller.dto.ClientRequest;
 import com.demo.simpleapp.api.v3.controller.dto.ClientResponse;
 import com.demo.simpleapp.business.ClientBO;
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @AllArgsConstructor
-public class ClientImpl implements Client {
+public class ClientControllerImpl implements ClientController {
 
     private final ClientBO bo;
 

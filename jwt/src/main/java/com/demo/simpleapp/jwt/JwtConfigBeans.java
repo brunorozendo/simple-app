@@ -1,7 +1,7 @@
 package com.demo.simpleapp.jwt;
 
 import com.demo.simpleapp.business.TokenBO;
-import com.demo.simpleapp.api.v3.business.TokenService;
+import com.demo.simpleapp.api.v3.services.TokenService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 

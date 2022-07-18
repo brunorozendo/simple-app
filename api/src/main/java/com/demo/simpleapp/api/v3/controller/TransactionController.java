@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.validation.Valid;
 
 @RequestMapping("/api/v3")
-public interface Transaction {
+public interface TransactionController {
 
     @PostMapping(value = "/transactions/report", consumes = "application/json", produces = "application/json")
     ReportResponse getReport(@Valid @RequestBody ReportRequest request);

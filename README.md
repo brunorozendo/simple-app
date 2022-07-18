@@ -53,3 +53,6 @@ And we have the implementations submodules
 - `data`: implements `models`/`jpa` for database use
 - `jwt`: implements the `/api/v3/merchant/user/login` and the filter for all others endpoints
 - `client`: implements the `/api/v3/client` end point
+
+
+podman run --rm --name myDb -p 5432:5432 -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=postgres -d postgres

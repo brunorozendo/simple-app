@@ -11,7 +11,7 @@ import javax.validation.Valid;
 
 
 @RequestMapping("/api/v3/merchant")
-public interface Merchant {
+public interface MerchantController {
 
     @PostMapping(value = "/user/login", consumes = "application/json", produces = "application/json" )
     LoginResponse getCredentials(@Valid @RequestBody LoginRequest credentials);
