@@ -1,0 +1,57 @@
+plugins {
+    id 'groovy'
+    id 'java-library'
+}
+
+group = 'com.demo'
+version = '0.0.1-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
+}
+
+dependencies {
+    compileOnly 'org.projectlombok:lombok:1.18.24'
+    annotationProcessor 'org.projectlombok:lombok:1.18.24'
+
+    testCompileOnly 'org.projectlombok:lombok:1.18.24'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.24'
+
+    // Mapstruct HAS TO BE after lombok, otherwise it will not use the generated getter/setter
+    implementation 'org.mapstruct:mapstruct:1.5.2.Final'
+    annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.2.Final'
+
+    implementation 'org.apache.groovy:groovy:4.0.3'
+    testImplementation platform('org.spockframework:spock-bom:2.2-M3-groovy-4.0')
+    testImplementation 'org.spockframework:spock-core:2.2-M3-groovy-4.0'
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+
+
+test {
+    testLogging {
+        events "passed", "skipped", "failed" //Show report when running tests
+    }
+    useJUnitPlatform() //required, if not present the test will not be found by gradle
+}
+
+sourceSets {
+    main {
+        java{
+            exclude 'src/main/groovy'
+        }
+    }
+    test{
+        java{
+            srcDir 'src/test/groovy'
+            exclude 'src/test/java'
+        }
+    }
+}
