@@ -1,20 +1,16 @@
 plugins {
-    id 'org.springframework.boot'
-    id 'io.spring.dependency-management'
     id 'groovy'
     id 'java-library'
 }
 
-group = 'com.demo'
-version = '0.0.1-SNAPSHOT'
-
 repositories {
     gradlePluginPortal()
     mavenCentral()
-    maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
 }
 
 dependencies {
+
+    implementation platform('org.springframework.boot:spring-boot-dependencies:2.7.1')
 
     compileOnly 'org.projectlombok:lombok:1.18.24'
     annotationProcessor 'org.projectlombok:lombok:1.18.24'
@@ -23,10 +19,10 @@ dependencies {
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.24'
 
     // Mapstruct HAS TO BE after lombok, otherwise it will not use the generated getter/setter
-    implementation 'org.mapstruct:mapstruct:1.5.2.Final'
+    compileOnly 'org.mapstruct:mapstruct:1.5.2.Final'
     annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.2.Final'
 
-    implementation 'org.apache.groovy:groovy:4.0.3'
+    testImplementation 'org.apache.groovy:groovy:4.0.3'
     testImplementation platform('org.spockframework:spock-bom:2.2-M3-groovy-4.0')
     testImplementation 'org.spockframework:spock-core:2.2-M3-groovy-4.0'
 }
@@ -58,14 +54,4 @@ sourceSets {
             exclude 'src/test/java'
         }
     }
-}
-
-// because each submodule with spring will be recognized as a "spring application"
-// we need this lines to tell gradle that we will use spring, but the submodule is not a "spring application"
-bootJar {
-    enabled = false
-}
-
-jar {
-    enabled = true
 }
