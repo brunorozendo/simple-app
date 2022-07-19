@@ -12,7 +12,7 @@ public class ConfigData {
     @Bean
     public static PropertySourcesPlaceholderConfigurer propertiesData(){
         PropertySourcesPlaceholderConfigurer pspc = new PropertySourcesPlaceholderConfigurer();
-        Resource[] resources = new ClassPathResource[ ]{ new ClassPathResource( "data.properties" ) };
+        Resource[] resources = new ClassPathResource[ ]{ new ClassPathResource("data.properties") };
         pspc.setLocations( resources );
         pspc.setIgnoreUnresolvablePlaceholders( true );
         return pspc;

@@ -9,9 +9,9 @@ plugins {
 dependencies {
 	implementation project(":api")
 	implementation project(":business")
-	implementation project(":client")
-	implementation project(":jwt")
-	implementation project(":data")
+	implementation project(":features:client")
+	implementation project(":features:jwt")
+	implementation project(":features:data")
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
