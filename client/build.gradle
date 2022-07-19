@@ -1,14 +1,8 @@
 plugins {
-    id 'myproject.java-conventions'
+    id 'simple-app.java-conventions'
 }
 dependencies {
     implementation project(":api")
     implementation project(":business")
     compileOnly 'org.springframework.boot:spring-boot-starter-web'
-
-    compileOnly 'org.projectlombok:lombok:1.18.24'
-    annotationProcessor 'org.projectlombok:lombok:1.18.24'
-    testCompileOnly 'org.projectlombok:lombok:1.18.24'
-    testAnnotationProcessor 'org.projectlombok:lombok:1.18.24'
-
 }

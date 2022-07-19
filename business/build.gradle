@@ -1,10 +1,8 @@
 plugins {
-    id 'myproject.java-conventions'
+    id 'simple-app.java-conventions'
 }
 
 
 dependencies {
-
     implementation project(":api")
-
 }

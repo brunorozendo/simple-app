@@ -1,5 +1,5 @@
 plugins {
-	id 'myproject.java-conventions'
+	id 'simple-app.java-conventions'
 	id 'org.springframework.boot'
 	id 'application'
 }
