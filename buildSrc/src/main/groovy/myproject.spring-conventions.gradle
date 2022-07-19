@@ -1,4 +1,5 @@
-
+// because each submodule with spring will be reconized as a "spring application"
+// we need this lines to tell gradle that we will use spring, but the submodule is not a "spring application"
 bootJar {
     enabled = false
 }

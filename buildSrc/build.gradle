@@ -4,10 +4,13 @@ plugins {
 
 repositories {
     gradlePluginPortal() // so that external plugins can be resolved in dependencies section
+    mavenCentral()
 }
 
 dependencies {
     //implementation 'gradle.plugin.com.github.spotbugs.snom:spotbugs-gradle-plugin:4.7.2'
+    implementation 'org.springframework.boot:spring-boot-gradle-plugin:2.7.1'
+    implementation 'io.spring.gradle:dependency-management-plugin:1.0.12.RELEASE'
 
     implementation 'org.apache.groovy:groovy:4.0.3'
     testImplementation platform('org.spockframework:spock-bom:2.2-M3-groovy-4.0')

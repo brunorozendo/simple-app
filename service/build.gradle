@@ -1,9 +1,16 @@
 plugins {
-	id 'org.springframework.boot' version '2.7.1'
-	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'myproject.java-conventions'
-	id 'java'
+	id 'org.springframework.boot'
+	id 'application'
 }
+
+bootJar {
+	enabled = true
+}
+jar {
+	enabled = false
+}
+
 
 
 dependencies {
