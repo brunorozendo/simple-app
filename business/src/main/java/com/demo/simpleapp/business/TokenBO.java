@@ -17,9 +17,9 @@ public class TokenBO {
         var status = tokenService.authenticate(credentials);
         if(status == AuthenticationStatus.VALID){
             String username = tokenService.getUsername(credentials);
-            final String jwtToken = tokenService.generate(username);
+            final String token = tokenService.generate(username);
             LoginResponse response = new LoginResponse();
-            response.setToken(jwtToken);
+            response.setToken(token);
             response.setStatus("APPROVED");
             return response;
         }

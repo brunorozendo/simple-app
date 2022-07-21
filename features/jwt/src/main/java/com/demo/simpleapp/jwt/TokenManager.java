@@ -3,6 +3,7 @@ package com.demo.simpleapp.jwt;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
@@ -19,9 +20,9 @@ import java.util.Map;
 @Component
 public class TokenManager implements Serializable {
 
-    private final Integer TIME_TO_EXPIRE_IN_MINUTES = 10;
 
-    private final String JWT_SECRET = "MIIDXTCCAkUCFHQtDzLHmWe0okVInFmjcyFSWjMPMA0GCSqGSIb3DQEBCwUAMH8x";
+    private Integer TIME_TO_EXPIRE_IN_MINUTES = 10;
+    private String JWT_SECRET = "MIIDXTCCAkUCFHQtDzLHmWe0okVInFmjcyFSWjMPMA0GCSqGSIb3DQEBCwUAMH8x";
 
     public String generateJwtToken(String username) {
         LocalDateTime currentTime = LocalDateTime.now();
