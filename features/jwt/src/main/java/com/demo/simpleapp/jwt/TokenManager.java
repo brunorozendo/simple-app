@@ -20,9 +20,11 @@ import java.util.Map;
 @Component
 public class TokenManager implements Serializable {
 
+    @Value("${TIME_TO_EXPIRE_IN_MINUTES}")
+    private Integer TIME_TO_EXPIRE_IN_MINUTES;
+    @Value("${JWT_SECRET}")
+    private String JWT_SECRET;
 
-    private Integer TIME_TO_EXPIRE_IN_MINUTES = 10;
-    private String JWT_SECRET = "MIIDXTCCAkUCFHQtDzLHmWe0okVInFmjcyFSWjMPMA0GCSqGSIb3DQEBCwUAMH8x";
 
     public String generateJwtToken(String username) {
         LocalDateTime currentTime = LocalDateTime.now();
