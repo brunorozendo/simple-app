@@ -45,14 +45,20 @@ This demo has implemented
 
 Using some ideas of the [Hexagonal Architecture](https://en.wikipedia.org/wiki/Hexagonal_architecture_(software))
 
-We have the basic submodules:
+## Submodules
+
+We have the basic:
  - `api`: contains only interfaces and pojos/model, ideally with pure Java 
  - `business`: contains pure Java, which has  the proper business
 
 And we have the implementations submodules
-- `data`: implements `models`/`jpa` for database use
-- `jwt`: implements the `/api/v3/merchant/user/login` and the filter for all others endpoints
-- `client`: implements the `/api/v3/client` end point
+- `features/data`: implements `models`/`jpa` for database use
+- `features/jwt`: implements the `/api/v3/merchant/user/login` and the filter for all others endpoints
+- `features/client`: implements the `/api/v3/client` end point
+- `features/transaction`: implements all `/api/v3/transaction/*` endpoints
+
+And for the "glue"
+- `service`: has the implementation of the spring boot and all dependencies
 
 
 podman run --rm --name myDb -p 5432:5432 -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=postgres -d postgres
