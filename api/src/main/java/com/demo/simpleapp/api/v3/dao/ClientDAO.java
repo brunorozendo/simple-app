@@ -2,8 +2,10 @@ package com.demo.simpleapp.api.v3.dao;
 
 import com.demo.simpleapp.api.v3.dao.models.Client;
 
+import java.util.Optional;
+
 public interface ClientDAO {
 
-    Client findById(Long id);
+    Optional<Client> findById(Long id);
 
 }

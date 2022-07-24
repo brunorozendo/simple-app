@@ -14,8 +14,8 @@ public class ClientDAOImpl implements ClientDAO {
     private final ClientRepository repository;
 
     @Override
-    public Client findById(Long id) {
+    public Optional<Client> findById(Long id) {
         Optional<ClientEntity> entity = repository.findById(id);
-        return new Client();
+        return Optional.of(new Client());
     }
 }

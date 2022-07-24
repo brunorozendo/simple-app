@@ -7,6 +7,8 @@ import com.demo.simpleapp.api.v3.dao.models.Client;
 import com.demo.simpleapp.api.v3.mapper.ClientMapper;
 import lombok.AllArgsConstructor;
 
+import java.util.Optional;
+
 
 @AllArgsConstructor
 public class ClientBO {
@@ -18,8 +20,8 @@ public class ClientBO {
     public ClientResponse getClient(ClientRequest clientRequest) {
         //TODO get id from the request
         // clientRequest.getTransactionId()
-        Client client = service.findById(1L);
+        Optional<Client> client = service.findById(1L);
 
-        return mapper.convert(client);
+        return client.map(mapper::convert).orElse(null);
     }
 }
