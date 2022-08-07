@@ -1,5 +1,5 @@
 plugins {
-    id 'simple-app.java-conventions'
+    id 'simple-app.default-config'
 }
 
 

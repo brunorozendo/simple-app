@@ -1,5 +1,5 @@
 plugins {
-    id 'simple-app.java-conventions'
+    id 'simple-app.default-config'
 }
 
 
@@ -8,6 +8,6 @@ dependencies {
 
     compileOnly 'javax.validation:validation-api:2.0.1.Final'
     testImplementation 'org.hibernate:hibernate-validator:6.2.3.Final'
-    testImplementation 'org.glassfish:javax.el:3.0.1-b08'
+    testImplementation 'org.glassfish:javax.el:3.0.1-b12'
 
 }

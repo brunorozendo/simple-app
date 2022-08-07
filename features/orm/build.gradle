@@ -1,5 +1,5 @@
 plugins {
-	id 'simple-app.java-conventions'
+	id 'simple-app.default-config'
 }
 
 dependencies {
@@ -8,6 +8,7 @@ dependencies {
 	implementation project(":business")
 
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	testImplementation 'org.spockframework:spock-spring'
 
 	runtimeOnly 'org.postgresql:postgresql'
 	runtimeOnly 'org.flywaydb:flyway-core'

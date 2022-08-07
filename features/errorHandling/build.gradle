@@ -1,13 +1,9 @@
 plugins {
-    id 'simple-app.java-conventions'
+    id 'simple-app.default-config'
 }
-
-
 dependencies {
     implementation project(":api")
     implementation project(":business")
-
     compileOnly 'org.springframework.boot:spring-boot-starter-web'
-
-
+    testImplementation 'org.spockframework:spock-spring'
 }

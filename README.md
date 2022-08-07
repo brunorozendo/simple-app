@@ -62,3 +62,14 @@ And for the "glue"
 
 
 podman run --rm --name myDb -p 5432:5432 -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=postgres -d postgres
+
+
+
+
+
+One or more dependencies were identified with known vulnerabilities in service:
+
+spring-security-crypto-5.7.2.jar (pkg:maven/org.springframework.security/spring-security-crypto@5.7.2, cpe:2.3:a:pivotal_software:spring_security:5.7.2:*:*:*:*:*:*:*, cpe:2.3:a:vmware:spring_security:5.7.2:*:*:*:*:*:*:*) : CVE-2020-5408
+spring-web-5.3.21.jar (pkg:maven/org.springframework/spring-web@5.3.21, cpe:2.3:a:pivotal_software:spring_framework:5.3.21:*:*:*:*:*:*:*, cpe:2.3:a:springsource:spring_framework:5.3.21:*:*:*:*:*:*:*, cpe:2.3:a:vmware:spring_framework:5.3.21:*:*:*:*:*:*:*) : CVE-2016-1000027
+tomcat-embed-core-9.0.64.jar (pkg:maven/org.apache.tomcat.embed/tomcat-embed-core@9.0.64, cpe:2.3:a:apache:tomcat:9.0.64:*:*:*:*:*:*:*, cpe:2.3:a:apache_tomcat:apache_tomcat:9.0.64:*:*:*:*:*:*:*) : CVE-2022-34305
+tomcat-embed-websocket-9.0.64.jar (pkg:maven/org.apache.tomcat.embed/tomcat-embed-websocket@9.0.64, cpe:2.3:a:apache:tomcat:9.0.64:*:*:*:*:*:*:*, cpe:2.3:a:apache_tomcat:apache_tomcat:9.0.64:*:*:*:*:*:*:*) : CVE-2022-34305

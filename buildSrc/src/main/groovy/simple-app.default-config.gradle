@@ -1,6 +1,7 @@
 plugins {
     id 'groovy'
     id 'java-library'
+    id 'org.owasp.dependencycheck'
 }
 
 repositories {
@@ -29,6 +30,7 @@ dependencies {
     //testImplementation 'org.spockframework:spock-core:2.2-M3-groovy-4.0'
     testImplementation 'org.spockframework:spock-core'
 
+
     testImplementation( "com.athaydes:spock-reports:2.3.0-groovy-3.0" ) {
         transitive = false // this avoids affecting your version of Groovy/Spock
     }
@@ -40,15 +42,12 @@ dependencies {
     testImplementation 'org.codehaus.groovy:groovy-xml:3.0.12'
 
     // if you don't already have slf4j-api and an implementation of it in the classpath, add this!
-    testImplementation 'org.slf4j:slf4j-api:1.7.30'
+    testImplementation 'org.slf4j:slf4j-api:1.7.36'
     //testRuntimeClasspath 'org.slf4j:slf4j-simple:1.7.30'
 }
 
-java {
-    toolchain {
-        languageVersion = JavaLanguageVersion.of(17)
-    }
-}
+
+
 
 
 
@@ -60,16 +59,13 @@ test {
     useJUnitPlatform() //required, if not present the test will not be found by gradle
 }
 
+
 sourceSets {
     main {
-        java{
-            exclude 'src/main/groovy'
-        }
+        groovy { srcDirs = [] }
     }
     test{
-        java{
-            srcDir 'src/test/groovy'
-            exclude 'src/test/java'
-        }
+        java{ srcDirs = [] }
     }
+
 }
