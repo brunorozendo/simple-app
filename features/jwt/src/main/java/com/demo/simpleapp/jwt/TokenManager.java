@@ -4,7 +4,6 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
 import javax.crypto.spec.SecretKeySpec;
@@ -37,10 +36,13 @@ public class TokenManager implements Serializable {
         byte[] apiKeySecretBytes = Base64.getEncoder().encode(JWT_SECRET.getBytes());
         Key signingKey = new SecretKeySpec(apiKeySecretBytes, SignatureAlgorithm.HS256.getJcaName());
 
-        return Jwts.builder().setClaims(claims).setSubject(username)
+        return Jwts.builder()
+                .setClaims(claims)
+                .setSubject(username)
                 .setIssuedAt(now)
                 .setExpiration(future)
-                .signWith(signingKey, SignatureAlgorithm.HS256).compact();
+                .signWith(signingKey, SignatureAlgorithm.HS256)
+                .compact();
     }
 
     public Boolean validateJwtToken(String token, String username) {
