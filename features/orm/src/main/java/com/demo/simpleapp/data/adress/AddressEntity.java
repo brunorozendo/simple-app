@@ -5,20 +5,20 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
-@Table(name = "tb_adress")
+@Table(name = "tb_address")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
 public class AddressEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE,  generator="adress_seq")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,  generator="address_seq")
     @SequenceGenerator(
-            name="adress_seq",
-            sequenceName="adress_sequence",
+            name="address_seq",
+            sequenceName="address_sequence",
             allocationSize=20
     )
     private Long id;
@@ -31,6 +31,7 @@ public class AddressEntity {
     private String address2;
     private String city;
     private String postcode;
+    @Column(name = "state_cuntry")
     private String state;
     private String country;
     private String phone;

@@ -2,7 +2,7 @@ package com.demo.simpleapp.api.v3.controller.dto;
 
 import lombok.*;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 @Getter
